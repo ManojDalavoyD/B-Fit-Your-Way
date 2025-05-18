@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   <link rel="stylesheet" href="login-page.css">
+  <script src="login-page.js"></script>
 </head>
 <body>
 
@@ -19,7 +20,7 @@
       <label for="login-password">Password:</label><br />
       <input type="password" id="login-password" name="password" required /><br />
 
-      <button type="submit">Log In</button>
+      <button type="submit" onclick="location.href='home'">Log In</button>
     </form>
 
     <hr />
@@ -27,32 +28,5 @@
     <button onclick="location.href='signup.html'">Create Account</button>
     <button onclick="location.href='/forgot-password'">Forgot Password</button>
   </div>
-<script>
-    // login.js
-
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.querySelector("form");
-
-  loginForm.addEventListener("submit", function (event) {
-    const email = document.getElementById("login-email").value.trim();
-    const password = document.getElementById("login-password").value.trim();
-
-    // Basic email and password validation
-    if (!email || !password) {
-      alert("Please enter both email and password.");
-      event.preventDefault(); // Stop form submission
-    } else if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
-      event.preventDefault();
-    }
-  });
-
-  function validateEmail(email) {
-    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return pattern.test(email);
-  }
-});
-
-</script>
 </body>
 </html>
